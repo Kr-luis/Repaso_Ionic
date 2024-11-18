@@ -35,15 +35,20 @@ export class LoginPage implements OnInit {
         this.chatService
             .signup(this.credentialForm.value)
             .then(
-                (user) => {
+                async (user) => {
                     loading.dismiss();
-                    this.router.navigateByUrl('/chat', { replaceUrl: true });
+                    const alert = await this.alertController.create({
+                        header: 'Registro exitoso',
+                        message: "El correo se encuentra registrado",
+                        buttons: ['OK'],
+                    });
+                    this.router.navigateByUrl('/', { replaceUrl: true });
                 },
                 async (err) => {
                     loading.dismiss();
                     const alert = await this.alertController.create({
-                        header: 'Sign up failed',
-                        message: err.message,
+                        header: 'Registro fallido',
+                        message: "El correo ya se encuentra registrado",
                         buttons: ['OK'],
                     });
                     await alert.present();
@@ -63,8 +68,8 @@ export class LoginPage implements OnInit {
                 async (err) => {
                     loading.dismiss();
                     const alert = await this.alertController.create({
-                        header: ':(',
-                        message: err.message,
+                        header: 'algo salio mal',
+                        message: "Ingrese sus credenciales correctas",
                         buttons: ['OK'],
                     });
                     await alert.present();

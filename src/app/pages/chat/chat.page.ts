@@ -5,7 +5,8 @@ import { Observable } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
-import { Geolocation } from '@capacitor/geolocation'; 
+import { Geolocation } from '@capacitor/geolocation';
+
 
 export interface User {
   uid: string;
@@ -32,10 +33,12 @@ export class ChatPage implements OnInit {
   currentUser: User | null = null;
   messages!: Observable<Message[]>;
   messageInput: string = '';
+  router: any;
 
   constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {}
 
   ngOnInit() {
+
     this.afAuth.authState.subscribe((user) => {
       if (user) {
         this.currentUser = {
@@ -51,7 +54,7 @@ export class ChatPage implements OnInit {
     let users: User[] = [];
     this.messages = this.getUsers().pipe(
       switchMap(res => {
-        users = res;
+        users = res; 
         return this.afs.collection<Message>('messages', ref => ref.orderBy('createdAt')).valueChanges({ idField: 'id' });
       }),
       map((messages: Message[]) => {
@@ -112,7 +115,7 @@ export class ChatPage implements OnInit {
   signOut(): Promise<void> {
     return this.afAuth.signOut()
       .then(() => {
-        console.log('User signed out successfully');
+        this.router.navigateByUrl('/');
       })
       .catch(error => {
         console.error('Error signing out:', error);
