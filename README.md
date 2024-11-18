@@ -29,7 +29,7 @@ Basandonos en la [@guía](https://ionicframework.com/docs/native/geolocation) re
 
 ### Funcion de compartir ubicacion
 
-![ubicacion](https://github.com/Kr-luis/Repaso_Ionic/blob/main/src/assets/Capturas/Compartir%20ubicacion.png?raw=true)
+![ubicacion](https://github.com/Kr-luis/Repaso_Ionic/blob/main/src/assets/Capturas/ubicacion.png?raw=true)
 ## Pasos para configurar el Proyecto en Ionic 
 
 1. Crear el proyecto en IONIC:
