@@ -25,7 +25,7 @@ Basandonos en la [@guía](https://ionicframework.com/docs/native/geolocation) re
 
 ### Chat
 
-![chat](https://github.com/Kr-luis/Repaso_Ionic/blob/main/src/assets/Capturas/Chat.png?raw=true)
+![chat](https://github.com/Kr-luis/Repaso_Ionic/blob/main/src/assets/Capturas/Chat2.png?raw=true)
 
 ### Funcion de compartir ubicacion
 
