@@ -1,28 +1,29 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
+import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/compat/auth-guard'; // Asegúrate de importar correctamente desde '@angular/fire'
 
 // Redirigir usuarios no autorizados al login
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/']);
 
-// Redirigir automáticamente a usuarios ya logueados
+// Redirigir automáticamente usuarios ya logueados al chat
 const redirectLoggedInToChat = () => redirectLoggedInTo(['/chat']);
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'login',
     loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule),
-    ...canActivate(redirectLoggedInToChat),
+    ...canActivate(redirectLoggedInToChat)
   },
   {
     path: 'chat',
     loadChildren: () => import('./pages/chat/chat.module').then(m => m.ChatPageModule),
-    ...canActivate(redirectUnauthorizedToLogin),
+    ...canActivate(redirectUnauthorizedToLogin)
   },
   {
-    path: '**',
-    redirectTo: '/',
-    pathMatch: 'full',
+    path:'',
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule),
+    ...canActivate(redirectLoggedInToChat)
+
   }
 ];
 
@@ -32,4 +33,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

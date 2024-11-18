@@ -1,28 +1,28 @@
+
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Devdactic Chat</ion-title>
+    <ion-title>Chat</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <form [formGroup]="credentialForm">
-    
-    <!-- Email Input -->
+
     <ion-item>
       <ion-input
         placeholder="Email address"
         formControlName="email"
         autofocus="true"
         clearInput="true"
+        type="email"
       ></ion-input>
     </ion-item>
-    
-    <div *ngIf="(email.dirty || email.touched) && email.errors" class="error">
-      <span *ngIf="email.errors?.required">Email is required</span>
-      <span *ngIf="email.errors?.email">Email is invalid</span>
+
+    <div *ngIf="(email?.dirty || email?.touched) && email?.errors" class="error">
+      <span *ngIf="email?.errors?.['required']">Email is required</span>
+      <span *ngIf="email?.errors?.['email']">Email is invalid</span>
     </div>
-    
-    <!-- Password Input -->
+
     <ion-item>
       <ion-input
         placeholder="Password"
@@ -31,16 +31,16 @@
         clearInput="true"
       ></ion-input>
     </ion-item>
-    
-    <div *ngIf="(password.dirty || password.touched) && password.errors" class="error">
-      <span *ngIf="password.errors?.['required']">Password is required</span>
-      <span *ngIf="password.errors?.['minlength'] ?? false">Password needs to be at least 6 characters</span>
-    </div>
 
+    <div *ngIf="(password?.dirty || password?.touched) && password?.errors" class="error">
+      <span *ngIf="password?.errors?.['required']">Password is required</span>
+      <span *ngIf="password?.errors?.['minlength']">Password needs to be at least 6 characters long</span>
+    </div>
   </form>
-  
-  <!-- Buttons -->
+
   <ion-button (click)="signUp()" expand="full">Sign up</ion-button>
   <ion-button (click)="signIn()" expand="full" color="secondary">Sign in</ion-button>
-
 </ion-content>
+
+ 
+
