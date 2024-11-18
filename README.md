@@ -21,7 +21,7 @@ Basandonos en la [@guía](https://ionicframework.com/docs/native/geolocation) re
 
 ### Actualizacion mensajes de validaciones
 
-![validaciones](https://github.com/Kr-luis/Repaso_Ionic/blob/main/src/assets/Capturas/Validaciones%20corregidas.png?raw=true)
+![validaciones](https://github.com/Kr-luis/Repaso_Ionic/blob/main/src/assets/Capturas/validaciones.png?raw=true)
 
 ### Chat
 
