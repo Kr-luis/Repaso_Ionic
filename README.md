@@ -9,7 +9,7 @@
 
 Basandonos en la [@guía](https://ionicframework.com/docs/native/geolocation) realizamos la lógica y la construcción de la app
 
-**De click [@aqui](https://github.com/Kr-luis/Repaso_firebase/blob/main/Repaso_firebase_GV.apk) para descargar la aplicación**
+**De click [@aqui](https://github.com/Kr-luis/Repaso_Ionic/blob/main/Repaso_ionic.apk) para descargar la aplicación**
 
 
 ## Capturas de Pantalla 📸
